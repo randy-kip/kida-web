@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Replace Calendly with an AI Booking Agent | Kidaflow Cases</title>
     <meta name="description" content="Conversational bookings via n8n + OpenAI + Cal.com; extensible to CRM/SMS/voice.">
+    <link rel="stylesheet" href="../evenup-theme.css">
     <link rel="stylesheet" href="../customers.css">
     <link rel="stylesheet" href="../case-studies/case-study.css">
     <link
@@ -16,19 +17,62 @@
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-logo">
-            <a href="../index.html">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-logo">
                 <img src="../kidaflow_logo.png" alt="Kidaflow Logo">
             </a>
+
+            <button class="hamburger-menu" id="hamburger-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+
+            <div class="nav-menu" id="nav-menu">
+                <button class="close-menu" id="close-menu-btn" aria-label="Close menu">
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path
+                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                            fill="currentColor" />
+                    </svg>
+                </button>
+
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../customers.html" class="nav-link">Customer Success Stories</a>
+                <div class="nav-item-dropdown">
+                    <a href="../docflow.html" class="nav-link nav-link-dropdown" style="text-decoration:none;">
+                        Solutions
+                        <svg class="dropdown-arrow" viewBox="0 0 24 24">
+                            <path d="M7 10l5 5 5-5z" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu--cols">
+                        <div class="dropdown-col">
+                            <span class="dropdown-col-title">Products</span>
+                            <a href="../ai-agent.html" class="dropdown-item">AI Sales Agent</a>
+                            <a href="../docflow.html" class="dropdown-item">DocFlow</a>
+                            <a href="../vikki.html" class="dropdown-item">Vikki</a>
+                            <a href="../bcv.html" class="dropdown-item">Build Compliance Vault</a>
+                        </div>
+                        <div class="dropdown-col">
+                            <span class="dropdown-col-title">Services</span>
+                            <a href="../services-pricing.html" class="dropdown-item">Services &amp; Pricing</a>
+                            <a href="../contact.html" class="dropdown-item">
+                                <strong>Custom Solution</strong><br>
+                                <small style="opacity: 0.8; font-size: 12px;">A system built around you</small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="../about.html" class="nav-link">About Us</a>
+                <a href="../contact.html" class="nav-link">Contact Us</a>
+                <a href="../skool.html" class="nav-link">Join the Skool</a>
+                <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-linkedin"
+                    class="btn btn-primary">Schedule a Call</a>
+            </div>
         </div>
-        <ul class="nav-links">
-            <li><a href="../index.html" class="nav-link">Home</a></li>
-            <li>
-                </li>
-            <li><a href="../customers.html" class="nav-link">Success Stories</a></li>
-            <li><a href="../contact.html" class="nav-link highlight">Contact</a></li>
-        </ul>
-        <div class="mobile-menu-btn">☰</div>
     </nav>
 
     <!-- Hero Section -->
@@ -314,6 +358,51 @@
 
     <script src="../customers.js"></script>
     <script src="../booking.js"></script>
+    <script>
+        // Mobile menu functionality
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        if (hamburgerBtn) {
+            function openMenu() {
+                navMenu.classList.add('active');
+                mobileOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeMenu() {
+                navMenu.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            hamburgerBtn.addEventListener('click', openMenu);
+            if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
+            if (mobileOverlay) mobileOverlay.addEventListener('click', closeMenu);
+            navMenu.querySelectorAll('.nav-link:not(.nav-link-dropdown), .dropdown-item').forEach(function (link) {
+                link.addEventListener('click', function () { if (window.innerWidth <= 768) closeMenu(); });
+            });
+        }
+    </script>
+    <script>
+        // Mobile: tap "Solutions" to expand/collapse its dropdown instead of navigating.
+        (function () {
+            if (window.__kdDropdownInit) return; window.__kdDropdownInit = true;
+            var isTouch = window.matchMedia('(hover: none)').matches ||
+                ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+            if (isTouch) {
+                document.querySelectorAll('.nav-item-dropdown > .nav-link-dropdown').forEach(function (link) {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        var dd = link.closest('.nav-item-dropdown');
+                        document.querySelectorAll('.nav-item-dropdown.active').forEach(function (o) {
+                            if (o !== dd) o.classList.remove('active');
+                        });
+                        dd.classList.toggle('active');
+                    });
+                });
+            }
+        })();
+    </script>
 </body>
 
 </html>

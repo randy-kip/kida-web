@@ -634,6 +634,37 @@
     }
   }
 
+  // ===================== Monthly / Annual billing toggle =====================
+  function wireBilling() {
+    const opts = document.querySelectorAll('.aa-bill-opt');
+    const note = document.querySelector('[data-bill-note]');
+    const boxes = document.querySelectorAll('.aa-price-box[data-monthly]');
+    if (!opts.length) return;
+
+    function apply(mode) {
+      const annual = mode === 'annual';
+      boxes.forEach(function (box) {
+        const num = box.querySelector('.aa-amt-num');
+        const line = box.querySelector('.aa-price-annual-line');
+        const save = box.querySelector('.aa-annual-save');
+        if (num) num.textContent = annual ? box.dataset.annual : box.dataset.monthly;
+        if (line) line.style.display = annual ? '' : 'none';
+        if (save) save.textContent = annual ? 'KES ' + box.dataset.annualYear + '/yr' : '';
+      });
+      if (note) note.style.display = annual ? '' : 'none';
+      opts.forEach(function (o) {
+        const on = o.dataset.bill === mode;
+        o.classList.toggle('is-active', on);
+        o.setAttribute('aria-pressed', String(on));
+      });
+    }
+
+    opts.forEach(function (o) {
+      o.addEventListener('click', function () { apply(o.dataset.bill); });
+    });
+    apply('monthly');
+  }
+
   // ===================== init =====================
   document.addEventListener('DOMContentLoaded', function () {
     renderComparison();
@@ -645,5 +676,6 @@
     runDemo();
     wireForm();
     wireModal();
+    wireBilling();
   });
 })();

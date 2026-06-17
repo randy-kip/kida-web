@@ -486,7 +486,14 @@
         .aa-trust .tick { width: 20px; height: 20px; border-radius: 50%; background: var(--aa-accent); display: inline-flex; align-items: center; justify-content: center; }
 
         /* ---- Pricing ---- */
-        .aa-pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1140px; margin: 0 auto; align-items: start; }
+        .aa-billing-toggle { display: inline-flex; gap: 4px; margin: 6px auto 0; padding: 4px; background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 30px; }
+        .aa-bill-opt { border: 0; background: transparent; padding: 9px 20px; border-radius: 24px; font-weight: 700; font-size: 14px; color: var(--aa-dark); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: .18s; font-family: inherit; }
+        .aa-bill-opt.is-active { background: var(--aa-accent); color: #fff; }
+        .aa-bill-badge { font-size: 11px; font-weight: 700; background: rgba(255,255,255,.22); padding: 2px 8px; border-radius: 12px; }
+        .aa-bill-opt:not(.is-active) .aa-bill-badge { background: var(--aa-accent-soft); color: var(--aa-accent); }
+        .aa-billing-note { text-align: center; color: var(--aa-accent); font-weight: 600; margin: 14px 0 0; }
+        .aa-price-annual-line { font-size: 12px; font-weight: 700; color: var(--aa-accent); margin-top: 4px; }
+        .aa-pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1140px; margin: 26px auto 0; align-items: start; }
         .aa-price-card {
             background: #fff;
             border: 1px solid rgba(0, 0, 0, 0.08);
@@ -899,21 +906,36 @@
             <h2 class="aa-h2">Simple, scaled pricing</h2>
             <p class="aa-sub">Convert more leads and close deals faster with intelligent 24/7 sales systems. Every plan starts with a 14-day free trial — no setup fee.</p>
 
+            <div class="text-center">
+                <div class="aa-billing-toggle" role="group" aria-label="Billing period">
+                    <button type="button" class="aa-bill-opt is-active" data-bill="monthly" aria-pressed="true">Monthly</button>
+                    <button type="button" class="aa-bill-opt" data-bill="annual" aria-pressed="false">
+                        Annual <span class="aa-bill-badge">Save 18%</span>
+                    </button>
+                </div>
+            </div>
+            <p class="aa-billing-note" data-bill-note style="display:none;">
+                💚 You're paying for 12 months but saving 18% — that's nearly <strong>2 months free</strong> every year.
+            </p>
+
             <div class="aa-pricing">
                 <!-- Minimum -->
                 <div class="aa-price-card">
                     <h3>Minimum</h3>
-                    <p class="aa-price-desc">Any 2 channels: Instagram, Facebook Messenger, Telegram, TikTok (business), Email. Ideal for small teams who want realistic 24/7 replies without hiring night staff.</p>
-                    <div class="aa-price-box">
-                        <div class="aa-price-amt"><span class="kes">KES</span> 15,500 <span class="per">/month</span></div>
+                    <p class="aa-price-desc">1 channel of your choice — incl. SMS, WhatsApp, Instagram, Facebook, Telegram, Email. Real AI from day one, built for small teams who want 24/7 replies without hiring night staff.</p>
+                    <div class="aa-price-box" data-monthly="19,500" data-annual="15,990" data-annual-year="191,880">
+                        <div class="aa-price-amt"><span class="kes">KES</span> <span class="aa-amt-num">19,500</span> <span class="per">/month</span></div>
+                        <div class="aa-price-annual-line" style="display:none;">billed annually · <span class="aa-annual-save"></span></div>
                         <div class="aa-price-trial">14-day free trial</div>
                     </div>
                     <ul class="aa-price-feats">
-                        <li class="lead">Up to 250 active contacts per month</li>
-                        <li>Guided conversation flow — instant, consistent replies (rule-based, no AI)</li>
-                        <li>Every contact captured into a basic lead database</li>
+                        <li class="lead">Up to 1,000 active contacts per month</li>
+                        <li>Genuine conversational AI — understands and replies naturally, not a script</li>
+                        <li>Calendar booking — books and confirms appointments automatically</li>
+                        <li>Captures every lead into a simple database</li>
+                        <li>Knows when to hand off to a human — with full context</li>
                         <li>2 team members receive chat escalations</li>
-                        <li>Basic analytics</li>
+                        <li>Basic analytics &amp; reporting</li>
                     </ul>
                     <div class="aa-price-best"><strong>Best for:</strong> Small businesses, solo operators, Instagram sellers, early-stage brands</div>
                     <button type="button" class="aa-price-cta soft aa-get-started" data-tier="Minimum">Get Started</button>
@@ -924,9 +946,10 @@
                     <div class="aa-popular-badge">Most Popular</div>
                     <h3>Starter</h3>
                     <p class="aa-price-desc">Up to 3 channels: Instagram, Facebook, TikTok, Telegram, WhatsApp, SMS, Email. For growing businesses that need smarter follow-ups.</p>
-                    <div class="aa-price-box">
+                    <div class="aa-price-box" data-monthly="32,500" data-annual="26,650" data-annual-year="319,800">
                         <div class="aa-price-was"><span class="aa-strike">KES 45,000</span> <span class="aa-save">Save 28%</span></div>
-                        <div class="aa-price-amt"><span class="kes">KES</span> 32,500 <span class="per">/month</span></div>
+                        <div class="aa-price-amt"><span class="kes">KES</span> <span class="aa-amt-num">32,500</span> <span class="per">/month</span></div>
+                        <div class="aa-price-annual-line" style="display:none;">billed annually · <span class="aa-annual-save"></span></div>
                         <div class="aa-price-trial">14-day free trial</div>
                     </div>
                     <ul class="aa-price-feats">
@@ -934,10 +957,10 @@
                         <li>Genuine conversational AI — understands and reasons like ChatGPT, not a script</li>
                         <li>Qualifies leads, upsells, and handles objections naturally</li>
                         <li>Calendar booking — books and confirms appointments automatically</li>
+                        <li>Payment processing — collects deposits and payments in-chat via Paystack, M-Pesa, or your processor of choice</li>
                         <li>Detailed data capture — name, budget, intent &amp; timeline saved to your CRM</li>
                         <li>Automatically requests reviews from happy clients to build your profile</li>
                         <li>Re-engages cold and abandoned conversations automatically</li>
-                        <li>Knows when to hand off to a human — with full context</li>
                         <li>Simple CRM integration with all leads in one place</li>
                         <li>3 team members receive escalations</li>
                         <li>Advanced analytics and reporting</li>
@@ -951,9 +974,10 @@
                 <div class="aa-price-card">
                     <h3>Pro</h3>
                     <p class="aa-price-desc">Unlimited channel connections. Full-scale automation for serious operational excellence across sales, support, and operations.</p>
-                    <div class="aa-price-box">
+                    <div class="aa-price-box" data-monthly="85,000" data-annual="69,700" data-annual-year="836,400">
                         <div class="aa-price-was"><span class="aa-strike">KES 110,000</span> <span class="aa-save">Save 23%</span></div>
-                        <div class="aa-price-amt"><span class="kes">KES</span> 85,000 <span class="per">/month</span></div>
+                        <div class="aa-price-amt"><span class="kes">KES</span> <span class="aa-amt-num">85,000</span> <span class="per">/month</span></div>
+                        <div class="aa-price-annual-line" style="display:none;">billed annually · <span class="aa-annual-save"></span></div>
                         <div class="aa-price-trial">14-day free trial</div>
                     </div>
                     <ul class="aa-price-feats">
@@ -1075,20 +1099,29 @@
             hamburgerBtn.addEventListener('click', openMenu);
             if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
             if (mobileOverlay) mobileOverlay.addEventListener('click', closeMenu);
-            navMenu.querySelectorAll('.nav-link, .dropdown-item').forEach(link => {
+            navMenu.querySelectorAll('.nav-link:not(.nav-link-dropdown), .dropdown-item').forEach(link => {
                 link.addEventListener('click', () => { if (window.innerWidth <= 768) closeMenu(); });
             });
         }
     </script>
     <script>
-        // Mobile: tap "Solutions" to expand/collapse its dropdown instead of navigating.
+        // Touch devices: tap "Solutions" to expand/collapse its dropdown instead of navigating.
+        // Keyed on hover capability, NOT width — touch tablets/laptops wider than 768px must
+        // still expand on tap rather than jump to a page.
         (function () {
             if (window.__kdDropdownInit) return; window.__kdDropdownInit = true;
+            var isTouch = window.matchMedia('(hover: none)').matches ||
+                ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+            if (!isTouch) return; // hover-capable: keep CSS hover + normal click-through
             document.querySelectorAll('.nav-item-dropdown > .nav-link-dropdown').forEach(function (link) {
                 link.addEventListener('click', function (e) {
-                    if (window.innerWidth > 768) return; // desktop keeps hover behaviour
                     e.preventDefault();
-                    link.closest('.nav-item-dropdown').classList.toggle('active');
+                    var dd = link.closest('.nav-item-dropdown');
+                    // close any other open dropdowns, then toggle this one
+                    document.querySelectorAll('.nav-item-dropdown.active').forEach(function (o) {
+                        if (o !== dd) o.classList.remove('active');
+                    });
+                    dd.classList.toggle('active');
                 });
             });
         })();
