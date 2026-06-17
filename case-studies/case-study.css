@@ -532,14 +532,19 @@ body {
 /* ===== Responsive Design ===== */
 @media (max-width: 1024px) {
     .hero-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 40px;
         text-align: center;
+    }
+
+    .hero-content > * {
+        min-width: 0;
     }
 
     .hero-text {
         max-width: 100%;
         margin: 0 auto;
+        min-width: 0;
     }
 
     .client-meta {
@@ -909,7 +914,29 @@ body {
 
 @media (max-width: 640px) {
     .hero h1 {
-        font-size: 40px;
+        font-size: clamp(26px, 8vw, 36px);
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+
+    .hero-video {
+        min-width: 0;
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .related-grid .project-node {
+        padding: 24px;
+    }
+
+    .results-table th,
+    .results-table td {
+        padding: 12px 16px;
+        font-size: 14px;
     }
 
     .stories-preview {
