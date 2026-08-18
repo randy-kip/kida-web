@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply — Creative Strategist (Ads) | Kidaflow</title>
+    <meta name="description" content="Apply for the Creative Strategist (Ads) role at Kidaflow. A few short questions — takes about 5 minutes.">
+    <link rel="icon" type="image/png" href="/kidaflow_logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --green: #082111;
+            --green-mid: #195233;
+            --green-soft: #f0f7f3;
+            --yellow: #FFB800;
+            --border: #e5e5e5;
+            --muted: #666;
+            --radius: 10px;
+        }
+
+        body {
+            font-family: 'Onest', sans-serif;
+            background: #f7f7f5;
+            color: var(--green);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ---- Hero ---- */
+        .apply-hero {
+            background: var(--green);
+            color: #fff;
+            padding: 56px 24px 40px;
+            text-align: center;
+        }
+
+        .apply-hero .eyebrow {
+            display: inline-block;
+            color: #7ddfa4;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .apply-hero h1 {
+            font-size: 40px;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+            margin-bottom: 14px;
+        }
+
+        .apply-hero p {
+            font-size: 17px;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.72);
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .apply-hero .meta-row {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 22px;
+        }
+
+        .apply-hero .chip {
+            font-size: 13px;
+            font-weight: 600;
+            padding: 7px 14px;
+            border-radius: 99px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* ---- Form ---- */
+        .form-main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px 70px;
+        }
+
+        .form-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 44px 44px 36px;
+            width: 100%;
+            max-width: 620px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+        }
+
+        .field-group {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            margin-bottom: 26px;
+        }
+
+        .field-group label {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--green);
+            line-height: 1.4;
+        }
+
+        .field-group .hint {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--muted);
+        }
+
+        .req { color: var(--green-mid); }
+        .opt { font-weight: 400; color: #aaa; font-size: 13px; }
+
+        .field-group input[type="text"],
+        .field-group input[type="email"],
+        .field-group input[type="url"],
+        .field-group textarea {
+            padding: 13px 14px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 16px;
+            color: var(--green);
+            background: #fff;
+            transition: border-color 0.15s;
+            width: 100%;
+            resize: vertical;
+        }
+
+        .field-group textarea { min-height: 84px; line-height: 1.5; }
+
+        .field-group input:focus,
+        .field-group textarea:focus { outline: none; border-color: var(--green-mid); }
+
+        .field-group input.error,
+        .field-group textarea.error { border-color: #e53e3e; }
+
+        /* platform checkboxes */
+        .checks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .check-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 11px 16px;
+            border: 2px solid var(--border);
+            border-radius: 99px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+            transition: border-color 0.15s, background 0.15s;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        .check-item:hover { border-color: var(--green-mid); }
+
+        .check-item.selected {
+            border-color: var(--green-mid);
+            background: var(--green-soft);
+        }
+
+        .check-item input {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            flex-shrink: 0;
+            position: relative;
+            transition: border-color 0.15s, background 0.15s;
+        }
+
+        .check-item.selected input {
+            border-color: var(--green-mid);
+            background: var(--green-mid);
+        }
+
+        .check-item.selected input::after {
+            content: '';
+            position: absolute;
+            top: 2px; left: 5px;
+            width: 4px; height: 8px;
+            border: 2px solid #fff;
+            border-top: none; border-left: none;
+            transform: rotate(45deg);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 8px 0 30px;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--green-mid);
+            margin-bottom: 20px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 17px;
+            background: var(--green-mid);
+            color: #fff;
+            font-family: inherit;
+            font-size: 17px;
+            font-weight: 800;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.2s;
+            letter-spacing: 0.3px;
+            margin-top: 6px;
+        }
+
+        .btn-submit:hover { opacity: 0.92; transform: scale(1.01); }
+        .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+        .form-error {
+            color: #e53e3e;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 16px;
+            text-align: center;
+            display: none;
+        }
+        .form-error.visible { display: block; }
+
+        /* ---- Success state ---- */
+        .success {
+            display: none;
+            text-align: center;
+            padding: 20px 10px 10px;
+        }
+        .success.visible { display: block; }
+
+        .success .mark {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--green-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+        .success .mark svg { width: 30px; height: 30px; stroke: var(--green-mid); }
+        .success h2 { font-size: 26px; font-weight: 800; margin-bottom: 12px; color: var(--green); }
+        .success p { font-size: 16px; color: var(--muted); line-height: 1.6; max-width: 420px; margin: 0 auto; }
+
+        .form-footer {
+            text-align: center;
+            padding: 24px;
+            font-size: 13px;
+            color: #aaa;
+        }
+
+        @media (max-width: 640px) {
+            .apply-hero { padding: 44px 20px 34px; }
+            .apply-hero h1 { font-size: 30px; }
+            .form-card { padding: 30px 20px 26px; border-radius: 0; border-left: none; border-right: none; }
+            .form-main { padding: 0 0 60px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="apply-hero">
+        <span class="eyebrow">We're Hiring</span>
+        <h1>Creative Strategist (Ads)</h1>
+        <p>A few short questions so we can get to know how you think. Keep answers brief — bullet points are perfect.</p>
+        <div class="meta-row">
+            <span class="chip">Proven paid ad results</span>
+            <span class="chip">2+ years experience</span>
+            <span class="chip">~5 min</span>
+        </div>
+    </header>
+
+    <main class="form-main">
+        <div class="form-card">
+
+            <form id="apply-form" novalidate>
+
+                <div class="section-label">The basics</div>
+
+                <div class="field-group">
+                    <label for="name">Name <span class="req">*</span></label>
+                    <input type="text" id="name" placeholder="Your full name" autocomplete="name">
+                </div>
+
+                <div class="field-group">
+                    <label for="email">Email <span class="req">*</span></label>
+                    <input type="email" id="email" placeholder="you@email.com" autocomplete="email">
+                </div>
+
+                <div class="field-group">
+                    <label for="location">Where are you based? <span class="req">*</span></label>
+                    <input type="text" id="location" placeholder="City, country" autocomplete="off">
+                </div>
+
+                <div class="divider"></div>
+                <div class="section-label">Your experience</div>
+
+                <div class="field-group">
+                    <label for="paid_social">Tell us about your experience with paid social.</label>
+                    <span class="hint">Roughly how long, budgets managed, results you're proud of.</span>
+                    <textarea id="paid_social" placeholder="A few sentences is plenty…"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label>What platforms have you worked with?</label>
+                    <div class="checks" id="platforms">
+                        <label class="check-item"><input type="checkbox" value="Facebook"> Facebook</label>
+                        <label class="check-item"><input type="checkbox" value="Instagram"> Instagram</label>
+                        <label class="check-item"><input type="checkbox" value="Google"> Google</label>
+                        <label class="check-item"><input type="checkbox" value="TikTok"> TikTok</label>
+                        <label class="check-item"><input type="checkbox" value="LinkedIn"> LinkedIn</label>
+                    </div>
+                    <input type="text" id="platforms_other" placeholder="Anything else? (optional)" style="margin-top:10px;">
+                </div>
+
+                <div class="field-group">
+                    <label for="b2b_experience">Have you done much with software or B2B before?</label>
+                    <textarea id="b2b_experience" placeholder="Short and honest is fine — even if the answer is 'not much yet.'"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label for="b2b_angles">If you were selling B2B software, what kind of angles do you think would land?</label>
+                    <textarea id="b2b_angles" placeholder="Give us a couple of ideas…"></textarea>
+                </div>
+
+                <div class="divider"></div>
+                <div class="section-label">How you think &amp; work</div>
+
+                <div class="field-group">
+                    <label for="brands">Any ads or brands you're really into right now?</label>
+                    <textarea id="brands" placeholder="What's caught your eye lately — and why?"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label for="process">How do you like to work — tools, process?</label>
+                    <textarea id="process" placeholder="Your go-to tools and how you run a project…"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label for="ai">How are you using AI in your work?</label>
+                    <textarea id="ai" placeholder="Where it helps you, what you use it for…"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label for="loom">Bonus: share a Loom of your work <span class="opt">(optional)</span></label>
+                    <input type="url" id="loom" placeholder="https://loom.com/… or a portfolio link">
+                </div>
+
+                <button type="submit" class="btn-submit" id="submit-btn">Send Application</button>
+                <p class="form-error" id="form-error">Please fill in the required fields (name, email, location).</p>
+
+            </form>
+
+            <div class="success" id="success">
+                <div class="mark">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                </div>
+                <h2>Application received</h2>
+                <p>Thanks for applying — we've got your answers. If it's a fit, we'll be in touch by email soon.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="form-footer">
+        Kidaflow &nbsp;|&nbsp; © 2026
+    </footer>
+
+<script>
+    // Toggle .selected styling on platform checkboxes
+    document.querySelectorAll('#platforms .check-item').forEach(item => {
+        const input = item.querySelector('input');
+        input.addEventListener('change', () => {
+            item.classList.toggle('selected', input.checked);
+        });
+    });
+
+    const form = document.getElementById('apply-form');
+    const errBox = document.getElementById('form-error');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const val = id => document.getElementById(id).value.trim();
+        const name = val('name');
+        const email = val('email');
+        const location = val('location');
+
+        // Reset error state
+        ['name', 'email', 'location'].forEach(id => document.getElementById(id).classList.remove('error'));
+        errBox.classList.remove('visible');
+
+        let valid = true;
+        if (!name) { document.getElementById('name').classList.add('error'); valid = false; }
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById('email').classList.add('error'); valid = false; }
+        if (!location) { document.getElementById('location').classList.add('error'); valid = false; }
+
+        if (!valid) { errBox.classList.add('visible'); return; }
+
+        const platforms = Array.from(document.querySelectorAll('#platforms input:checked')).map(i => i.value);
+        const platformsOther = val('platforms_other');
+        if (platformsOther) platforms.push(platformsOther);
+
+        const btn = document.getElementById('submit-btn');
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+
+        const payload = {
+            source: 'job-application-creative-strategist',
+            role: 'Creative Strategist (Ads)',
+            name: name,
+            email: email,
+            location: location,
+            paid_social_experience: val('paid_social'),
+            platforms: platforms.join(', '),
+            b2b_experience: val('b2b_experience'),
+            b2b_angles: val('b2b_angles'),
+            brands_admired: val('brands'),
+            work_process: val('process'),
+            ai_usage: val('ai'),
+            loom_link: val('loom'),
+            submitted_at: new Date().toISOString()
+        };
+
+        try {
+            await fetch('/api/save-application', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+        } catch (err) {
+            console.error('Submit error:', err);
+        }
+
+        // Show success regardless — we don't want an applicant stuck if the webhook hiccups
+        form.style.display = 'none';
+        document.getElementById('success').classList.add('visible');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+</body>
+</html>
