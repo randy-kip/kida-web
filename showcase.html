@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>KiDaFlow | Capabilities, Projects & Proposals</title>
+    <link rel="icon" type="image/png" href="kidaflow_logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Onest:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="evenup-theme.css">
+    <style>
+        /* ---- Showcase-specific ---- */
+        .sc-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 130px 0 90px;
+            text-align: center;
+        }
+
+        .sc-eyebrow {
+            display: inline-block;
+            border: 1px solid rgba(25, 82, 51, 0.3);
+            background: rgba(25, 82, 51, 0.06);
+            color: var(--color-accent);
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 8px 18px;
+            border-radius: var(--radius-pill);
+            margin-bottom: 28px;
+        }
+
+        .sc-hero h1 {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .sc-hero p.lead {
+            max-width: 720px;
+            margin: 0 auto;
+            font-size: 20px;
+            color: var(--text-muted);
+        }
+
+        .sc-section {
+            padding: 90px 0;
+        }
+
+        .sc-head {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 60px;
+        }
+
+        .sc-head h2 {
+            font-size: 44px;
+        }
+
+        .sc-head p {
+            color: var(--text-muted);
+            font-size: 18px;
+        }
+
+        /* Capabilities pills */
+        .cap-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .cap-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-card);
+            padding: 32px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .cap-card .ico {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(25, 82, 51, 0.1);
+            color: var(--color-accent);
+            margin-bottom: 18px;
+        }
+
+        .cap-card h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .cap-card p {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Project grid */
+        .proj-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;
+        }
+
+        .proj-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .proj-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(8, 33, 17, 0.14);
+        }
+
+        .proj-preview {
+            display: block;
+            height: 180px;
+            background: #eef2ef;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .proj-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            transition: transform 0.5s ease;
+        }
+
+        .proj-card:hover .proj-preview img {
+            transform: scale(1.04);
+        }
+
+        .proj-body {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 28px 30px 30px;
+        }
+
+        .proj-tag {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 12px;
+        }
+
+        .proj-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .proj-card p {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 22px;
+        }
+
+        .proj-link {
+            margin-top: auto;
+            font-weight: 700;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .proj-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Case studies */
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .story-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .story-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-image {
+            height: 210px;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .story-card:hover .story-image img {
+            transform: scale(1.05);
+        }
+
+        .story-content {
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .story-tag {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-accent);
+            margin-bottom: 12px;
+        }
+
+        .story-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+            color: #082111;
+        }
+
+        .story-desc {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .story-link {
+            margin-top: auto;
+            font-weight: 700;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .story-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Ideas */
+        .idea-band {
+            background: radial-gradient(circle at 50% 0%, #0a2e1d 0%, #051b11 100%);
+            color: #fff;
+        }
+
+        .idea-band .sc-head h2 {
+            color: #fff;
+        }
+
+        .idea-band .sc-head p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .idea-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 26px;
+        }
+
+        .idea-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-card);
+            padding: 30px;
+            backdrop-filter: var(--backdrop-blur);
+        }
+
+        .idea-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            background: var(--color-brand-green, #33c37e);
+            background: linear-gradient(135deg, #2e8b57, #33c37e);
+            color: #051b11;
+            font-weight: 800;
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+
+        .idea-card h3 {
+            color: #fff;
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .idea-card p {
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 15px;
+            margin-bottom: 22px;
+        }
+
+        .idea-diagram {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed rgba(255, 255, 255, 0.14);
+            border-radius: 12px;
+            padding: 16px 12px;
+        }
+
+        .idea-diagram svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Recommendation callout */
+        .reco {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, rgba(51, 195, 126, 0.18), rgba(46, 139, 87, 0.08));
+            border: 1px solid rgba(51, 195, 126, 0.4);
+        }
+
+        .reco h3 {
+            font-size: 26px;
+        }
+
+        .reco .modules {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 8px;
+        }
+
+        .reco .mod {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 10px;
+            padding: 16px;
+        }
+
+        .reco .mod strong {
+            color: #7ee8b0;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .reco .mod span {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Team strip */
+        .team-strip {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .team-strip .num {
+            font-size: 64px;
+            font-weight: 800;
+            color: var(--color-accent);
+            line-height: 1;
+        }
+
+        .scripture {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+            font-style: italic;
+            font-size: 20px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        @media (max-width: 900px) {
+
+            .cap-grid,
+            .proj-grid,
+            .story-grid,
+            .idea-grid,
+            .reco .modules {
+                grid-template-columns: 1fr;
+            }
+
+            .sc-hero h1 {
+                font-size: 44px;
+            }
+
+            .sc-head h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Minimal nav (unlisted page — logo only, links back to home) -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="kidaflow_logo.png" alt="Kidaflow Logo">
+            </a>
+            <a href="javascript:void(0)" data-cal-link="kidaflow-automations/quick-discovery-website-linkedin"
+                class="btn btn-primary" style="padding: 10px 20px; font-size: 13px;">Schedule a Call</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="section sc-hero hero-wrapper">
+        <div class="glass-deco glass-deco-1"></div>
+        <div class="glass-deco glass-deco-2"></div>
+        <div class="container" style="position: relative; z-index: 5;">
+            <span class="sc-eyebrow">Capabilities · Live Projects · Proposals</span>
+            <h1>What we build,<br>and what we could build for you.</h1>
+            <p class="lead">
+                KiDaFlow is an AI-driven automation studio. We design custom software, intelligent agents, and
+                connected systems that remove manual work and move real operations faster. Here is a look at what
+                we've shipped — and a set of ideas we'd love to propose.
+            </p>
+        </div>
+    </section>
+
+    <!-- WHAT WE DO / SOLUTIONS -->
+    <section class="section sc-section bg-light">
+        <div class="container">
+            <div class="sc-head">
+                <span class="text-label" style="color: var(--color-accent);">OUR SOLUTIONS</span>
+                <h2>Three ways we deliver</h2>
+                <p>Every engagement starts with your workflow — then we pick the right build.</p>
+            </div>
+            <div class="cap-grid">
+                <div class="cap-card">
+                    <div class="ico">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Custom Software</h3>
+                    <p>Bespoke web apps, portals, and operational tools built around exactly how your business runs —
+                        not a template you have to bend to fit.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="ico">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3>AI Agents</h3>
+                    <p>Conversational assistants that qualify leads, answer questions, read documents, and take action
+                        across WhatsApp, SMS, web, and voice.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="ico">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                        </svg>
+                    </div>
+                    <h3>CRM &amp; Workflow Systems</h3>
+                    <p>Connected systems and automated CRMs that unify your data, trigger communications, and give you
+                        a single source of truth for the whole operation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE PROJECTS -->
+    <section class="section sc-section" style="background:#fff;">
+        <div class="container">
+            <div class="sc-head">
+                <span class="text-label" style="color: var(--color-accent);">PROOF OF WORK</span>
+                <h2>Projects we've built</h2>
+                <p>A selection of live products and platforms delivered for clients across retail, legal, healthcare,
+                    construction, and B2B commerce.</p>
+            </div>
+            <div class="proj-grid">
+
+                <div class="proj-card">
+                    <a class="proj-preview" href="https://buildcompliancevault.com/" target="_blank" rel="noopener">
+                        <img loading="lazy" alt="Build Compliance Vault preview"
+                            src="https://image.thum.io/get/width/600/crop/750/https://buildcompliancevault.com/">
+                    </a>
+                    <div class="proj-body">
+                        <div class="proj-tag">Construction · Compliance</div>
+                        <h3>Build Compliance Vault</h3>
+                        <p>Analyzes building plans against regulatory codes so surveyors and builders catch violations
+                            instantly and produce faster, more accurate compliance reports.</p>
+                        <a class="proj-link" href="https://buildcompliancevault.com/" target="_blank"
+                            rel="noopener">Visit project →</a>
+                    </div>
+                </div>
+
+                <div class="proj-card">
+                    <a class="proj-preview" href="https://wezesha-restock.simplydoneafrica.com/" target="_blank"
+                        rel="noopener">
+                        <img loading="lazy" alt="Wezesha Restock OS preview"
+                            src="https://image.thum.io/get/width/600/crop/750/https://wezesha-restock.simplydoneafrica.com/">
+                    </a>
+                    <div class="proj-body">
+                        <div class="proj-tag">Retail · Inventory AI</div>
+                        <h3>Wezesha Restock OS</h3>
+                        <p>A restocking-intelligence platform for African retailers and pharmacies. Reads POS sales data
+                            to generate weekly reorder lists — no more stockouts or cash tied up in dead stock.</p>
+                        <a class="proj-link" href="https://wezesha-restock.simplydoneafrica.com/" target="_blank"
+                            rel="noopener">Visit project →</a>
+                    </div>
+                </div>
+
+                <div class="proj-card">
+                    <a class="proj-preview" href="https://merchai-v2.vercel.app/" target="_blank" rel="noopener">
+                        <img loading="lazy" alt="Wezesha Merchandiser+ preview"
+                            src="https://image.thum.io/get/width/600/crop/750/https://merchai-v2.vercel.app/">
+                    </a>
+                    <div class="proj-body">
+                        <div class="proj-tag">Retail · Shelf Intelligence</div>
+                        <h3>Wezesha Merchandiser+</h3>
+                        <p>AI-powered shelf intelligence that helps retailers and merchandisers optimize product
+                            placement and in-store execution from photos and store data.</p>
+                        <a class="proj-link" href="https://merchai-v2.vercel.app/" target="_blank" rel="noopener">Visit
+                            project →</a>
+                    </div>
+                </div>
+
+                <div class="proj-card">
+                    <a class="proj-preview" href="https://wezesha-lpo.simplydoneafrica.com/signup" target="_blank"
+                        rel="noopener">
+                        <img loading="lazy" alt="Wezesha LPO Reader preview"
+                            src="https://image.thum.io/get/width/600/crop/750/https://wezesha-lpo.simplydoneafrica.com/">
+                    </a>
+                    <div class="proj-body">
+                        <div class="proj-tag">B2B Commerce · Procurement</div>
+                        <h3>Wezesha LPO Reader</h3>
+                        <p>Digitizes local purchase orders — reading, structuring, and routing procurement documents so
+                            suppliers and buyers move faster with fewer errors.</p>
+                        <a class="proj-link" href="https://wezesha-lpo.simplydoneafrica.com/signup" target="_blank"
+                            rel="noopener">Visit project →</a>
+                    </div>
+                </div>
+
+                <div class="proj-card">
+                    <a class="proj-preview" href="https://vikkiassistant.com" target="_blank" rel="noopener">
+                        <img loading="lazy" alt="Vikki Assistant preview"
+                            src="https://image.thum.io/get/width/600/crop/750/https://vikkiassistant.com/">
+                    </a>
+                    <div class="proj-body">
+                        <div class="proj-tag">Legal · AI Assistant</div>
+                        <h3>Vikki Assistant</h3>
+                        <p>An AI intake and case-management assistant for law firms. Turns intake forms and client comms
+                            into structured case data automatically, cutting hours of manual entry to minutes.</p>
+                        <a class="proj-link" href="https://vikkiassistant.com" target="_blank" rel="noopener">Visit
+                            project →</a>
+                    </div>
+                </div>
+
+                <div class="proj-card">
+                    <a class="proj-preview" href="https://kida-sign.vercel.app/" target="_blank" rel="noopener">
+                        <img loading="lazy" alt="KiDaFlow Sign preview"
+                            src="https://image.thum.io/get/width/600/crop/750/https://kida-sign.vercel.app/">
+                    </a>
+                    <div class="proj-body">
+                        <div class="proj-tag">Documents · E-Signature</div>
+                        <h3>KiDaFlow Sign</h3>
+                        <p>A clean, self-hosted document-signing platform — prepare, send, and legally sign documents
+                            without per-seat SaaS fees.</p>
+                        <a class="proj-link" href="https://kida-sign.vercel.app/" target="_blank" rel="noopener">Visit
+                            project →</a>
+                    </div>
+                </div>
+
+                <div class="proj-card">
+                    <a class="proj-preview" href="https://ortho-docs.vercel.app/people" target="_blank" rel="noopener">
+                        <img loading="lazy" alt="OrthoDocs preview"
+                            src="https://image.thum.io/get/width/600/crop/750/https://ortho-docs.vercel.app/people">
+                    </a>
+                    <div class="proj-body">
+                        <div class="proj-tag">Healthcare · Documents</div>
+                        <h3>OrthoDocs</h3>
+                        <p>A document-signing and records workflow tailored for orthopaedic / clinical teams — managing
+                            people, forms, and signatures in one place.</p>
+                        <a class="proj-link" href="https://ortho-docs.vercel.app/people" target="_blank"
+                            rel="noopener">Visit project →</a>
+                    </div>
+                </div>
+
+                <div class="proj-card"
+                    style="background: linear-gradient(135deg, rgba(25,82,51,0.10), rgba(25,82,51,0.04)); border:2px solid var(--color-accent);">
+                    <div class="proj-body">
+                        <div class="proj-tag">And more</div>
+                        <h3>20+ businesses impacted</h3>
+                        <p>Across finance, real estate, home services and beyond — see the full set of client outcomes
+                            on our success-stories page.</p>
+                        <a class="proj-link" href="customers.html">See success stories →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section class="section sc-section bg-light">
+        <div class="container">
+            <div class="sc-head">
+                <span class="text-label" style="color: var(--color-accent);">CLIENT SUCCESS STORIES</span>
+                <h2>Real results, real clients</h2>
+                <p>A snapshot of the businesses we've transformed across accounting, legal, real estate, home services,
+                    and beyond.</p>
+            </div>
+            <div class="story-grid">
+
+                <div class="story-card">
+                    <div class="story-image"><img src="client stories/6.png" alt="Beva Homes"></div>
+                    <div class="story-content">
+                        <span class="story-tag">Real Estate</span>
+                        <h3 class="story-title">Beva Homes</h3>
+                        <p class="story-desc">Recovered $2M+ in lost opportunities by automating lead follow-up and
+                            qualification instantly.</p>
+                        <a href="case-studies/beva-homes.html" class="story-link">Read Story →</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image"><img src="client stories/3.png" alt="Beauty in the Books"></div>
+                    <div class="story-content">
+                        <span class="story-tag">Finance</span>
+                        <h3 class="story-title">Beauty in the Books</h3>
+                        <p class="story-desc">Reduced manual data entry by 77% with a custom invoice processing AI
+                            pipeline.</p>
+                        <a href="case-studies/beauty-in-the-books.html" class="story-link">Read Story →</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image"><img src="client stories/1.png" alt="Mr. Rooter"></div>
+                    <div class="story-content">
+                        <span class="story-tag">Home Services</span>
+                        <h3 class="story-title">Mr. Rooter</h3>
+                        <p class="story-desc">Automated technician dispatch notifications, saving 15+ hours of admin time
+                            per week.</p>
+                        <a href="case-studies/mr-rooter.html" class="story-link">Read Story →</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image"><img src="client stories/13.png" alt="Cherokee CPA"></div>
+                    <div class="story-content">
+                        <span class="story-tag">Accounting Services</span>
+                        <h3 class="story-title">Cherokee CPA</h3>
+                        <p class="story-desc">Streamlined tax document processing and financial data extraction with
+                            DocFlow, increasing accuracy and efficiency.</p>
+                        <a href="case-studies/cherokee-cpa.html" class="story-link">Read Story →</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image"><img src="client stories/2.png" alt="Ask A Barrister UK"></div>
+                    <div class="story-content">
+                        <span class="story-tag">Legal Tech</span>
+                        <h3 class="story-title">Ask a Barrister UK</h3>
+                        <p class="story-desc">From 25 minutes of manual checks to a 5-minute AI-verified claims pipeline.
+                        </p>
+                        <a href="case-studies/ask-a-barrister.html" class="story-link">Read Story →</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image"><img src="client stories/5.png" alt="PI Associates"></div>
+                    <div class="story-content">
+                        <span class="story-tag">Personal Injury Law</span>
+                        <h3 class="story-title">PI Associates</h3>
+                        <p class="story-desc">Automated case intake and client management with Vikki, streamlining legal
+                            operations and improving response times.</p>
+                        <a href="case-studies/pi-associates.html" class="story-link">Read Story →</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image"><img src="client stories/12.png" alt="Northern Inspections"></div>
+                    <div class="story-content">
+                        <span class="story-tag">Building Surveyors</span>
+                        <h3 class="story-title">Northern Inspections</h3>
+                        <p class="story-desc">Automated inspection reports and building code verification, significantly
+                            reducing report generation time.</p>
+                        <a href="case-studies/northern-inspections.html" class="story-link">Read Story →</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image"><img src="client stories/11.png" alt="Bins4Less USA"></div>
+                    <div class="story-content">
+                        <span class="story-tag">Logistics</span>
+                        <h3 class="story-title">Bins4less USA</h3>
+                        <p class="story-desc">Complete CRM automation &amp; lead management for a regional waste giant.
+                        </p>
+                        <a href="case-studies/bins4less.html" class="story-link">Read Story →</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image"><img src="client stories/10.png" alt="Bail 2 GO"></div>
+                    <div class="story-content">
+                        <span class="story-tag">Legal Tech</span>
+                        <h3 class="story-title">Bail 2 GO</h3>
+                        <p class="story-desc">Scaled operations 3x without new hires using the 'Mamba Flow' digital
+                            assembly line.</p>
+                        <a href="case-studies/client-10.html" class="story-link">Read Story →</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="customers.html" class="btn btn-secondary">View all success stories</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROPOSED IDEAS -->
+    <section class="section sc-section idea-band">
+        <div class="container">
+            <div class="sc-head">
+                <span class="text-label" style="color:#7ee8b0;">IDEAS WE'D LOVE TO PROPOSE</span>
+                <h2>A Government Workflow Platform</h2>
+                <p>Six configurable products for public-sector service delivery — each close to the automation we
+                    already build, each demonstrable with one narrow use case before it scales across agencies.</p>
+            </div>
+
+            <div class="idea-grid">
+
+                <!-- Idea 1 -->
+                <div class="idea-card">
+                    <span class="idea-num">1</span>
+                    <h3>Service Request &amp; Case Management</h3>
+                    <p>Citizens, businesses, or staff submit requests via web, WhatsApp, SMS, USSD, or call centre. The
+                        platform classifies, routes to the right department, tracks deadlines, sends updates, and
+                        escalates delays — for complaints, permits, inspections, licensing and more.</p>
+                    <div class="idea-diagram">
+                        <svg viewBox="0 0 460 120" role="img" aria-label="Multi-channel intake flows into classify, route, track, and update.">
+                            <defs>
+                                <marker id="arw" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                                    <path d="M0,0 L6,3 L0,6 Z" fill="#7ee8b0" />
+                                </marker>
+                            </defs>
+                            <!-- channels -->
+                            <g font-family="Inter, sans-serif" font-size="10" fill="#dff5e9" text-anchor="middle">
+                                <rect x="6" y="8" width="70" height="20" rx="5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="41" y="21">Web / App</text>
+                                <rect x="6" y="34" width="70" height="20" rx="5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="41" y="47">WhatsApp</text>
+                                <rect x="6" y="60" width="70" height="20" rx="5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="41" y="73">SMS / USSD</text>
+                                <rect x="6" y="86" width="70" height="20" rx="5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="41" y="99">Call centre</text>
+                            </g>
+                            <!-- classify hub -->
+                            <rect x="150" y="42" width="86" height="36" rx="8" fill="rgba(51,195,126,0.18)" stroke="#33c37e"/>
+                            <text x="193" y="64" font-family="Inter, sans-serif" font-size="11" fill="#fff" text-anchor="middle" font-weight="700">Classify &amp; Route</text>
+                            <!-- arrows to hub -->
+                            <g stroke="#7ee8b0" stroke-width="1.4" fill="none">
+                                <path d="M78,18 C120,18 120,54 148,56" marker-end="url(#arw)"/>
+                                <path d="M78,44 C115,44 120,56 148,58" marker-end="url(#arw)"/>
+                                <path d="M78,70 C115,70 120,62 148,62" marker-end="url(#arw)"/>
+                                <path d="M78,96 C120,96 120,66 148,64" marker-end="url(#arw)"/>
+                            </g>
+                            <!-- outputs -->
+                            <g font-family="Inter, sans-serif" font-size="10" fill="#dff5e9" text-anchor="middle">
+                                <rect x="300" y="16" width="72" height="20" rx="5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="336" y="29">Track SLA</text>
+                                <rect x="300" y="50" width="72" height="20" rx="5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="336" y="63">Notify</text>
+                                <rect x="300" y="84" width="72" height="20" rx="5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="336" y="97">Escalate</text>
+                                <rect x="392" y="50" width="62" height="20" rx="5" fill="rgba(51,195,126,0.18)" stroke="#33c37e"/>
+                                <text x="423" y="63" fill="#fff">Dashboard</text>
+                            </g>
+                            <g stroke="#7ee8b0" stroke-width="1.4" fill="none">
+                                <path d="M236,54 C270,40 275,26 298,26" marker-end="url(#arw)"/>
+                                <path d="M236,60 L298,60" marker-end="url(#arw)"/>
+                                <path d="M236,66 C270,80 275,94 298,94" marker-end="url(#arw)"/>
+                                <path d="M372,60 L390,60" marker-end="url(#arw)"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Idea 2 -->
+                <div class="idea-card">
+                    <span class="idea-num">2</span>
+                    <h3>Forms, Applications &amp; Approvals</h3>
+                    <p>Agencies create digital forms without new software each time, define approval steps, collect and
+                        verify documents, assign officers, and issue approvals, certificates, or renewals — for
+                        permits, licences, grants, scholarships, tenders and registrations.</p>
+                    <div class="idea-diagram">
+                        <svg viewBox="0 0 460 90" role="img" aria-label="Build form, submit, verify, approve, issue certificate — a linear pipeline.">
+                            <defs>
+                                <marker id="arw2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                                    <path d="M0,0 L6,3 L0,6 Z" fill="#7ee8b0" />
+                                </marker>
+                            </defs>
+                            <g font-family="Inter, sans-serif" font-size="10" fill="#fff" text-anchor="middle">
+                                <rect x="4" y="32" width="76" height="26" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="42" y="48">Build form</text>
+                                <rect x="98" y="32" width="76" height="26" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="136" y="48">Submit</text>
+                                <rect x="192" y="32" width="76" height="26" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="230" y="48">Verify docs</text>
+                                <rect x="286" y="32" width="76" height="26" rx="6" fill="rgba(51,195,126,0.18)" stroke="#33c37e"/>
+                                <text x="324" y="48" font-weight="700">Approve</text>
+                                <rect x="380" y="32" width="76" height="26" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="418" y="48">Issue cert.</text>
+                            </g>
+                            <g stroke="#7ee8b0" stroke-width="1.4" fill="none">
+                                <path d="M80,45 L96,45" marker-end="url(#arw2)"/>
+                                <path d="M174,45 L190,45" marker-end="url(#arw2)"/>
+                                <path d="M268,45 L284,45" marker-end="url(#arw2)"/>
+                                <path d="M362,45 L378,45" marker-end="url(#arw2)"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Idea 3 -->
+                <div class="idea-card">
+                    <span class="idea-num">3</span>
+                    <h3>Inter-Agency Data Exchange</h3>
+                    <p>Connects existing systems through secure APIs, standardises data exchange, manages permissions,
+                        and shows which agency owns the next step — so citizens stop re-submitting the same details.
+                        Interoperability first, not replacement. (Rwanda's IremboGov: 100+ services, 20+ agencies.)</p>
+                    <div class="idea-diagram">
+                        <svg viewBox="0 0 460 120" role="img" aria-label="Multiple agencies connect through a secure exchange bus with permissions.">
+                            <defs>
+                                <marker id="arw3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                                    <path d="M0,0 L6,3 L0,6 Z" fill="#7ee8b0" />
+                                </marker>
+                            </defs>
+                            <!-- central bus -->
+                            <rect x="150" y="52" width="160" height="16" rx="8" fill="rgba(51,195,126,0.22)" stroke="#33c37e"/>
+                            <text x="230" y="64" font-family="Inter, sans-serif" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">Secure Exchange · Permissions</text>
+                            <g font-family="Inter, sans-serif" font-size="10" fill="#fff" text-anchor="middle">
+                                <rect x="40" y="6" width="90" height="22" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="85" y="21">Agency A</text>
+                                <rect x="330" y="6" width="90" height="22" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="375" y="21">Agency B</text>
+                                <rect x="40" y="92" width="90" height="22" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="85" y="107">Agency C</text>
+                                <rect x="330" y="92" width="90" height="22" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="375" y="107">Registry</text>
+                            </g>
+                            <g stroke="#7ee8b0" stroke-width="1.4" fill="none">
+                                <path d="M120,28 C150,40 165,48 175,52" marker-end="url(#arw3)"/>
+                                <path d="M340,28 C310,40 295,48 285,52" marker-end="url(#arw3)"/>
+                                <path d="M120,92 C150,80 165,70 175,66" marker-end="url(#arw3)"/>
+                                <path d="M340,92 C310,80 295,70 285,66" marker-end="url(#arw3)"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Idea 4 -->
+                <div class="idea-card">
+                    <span class="idea-num">4</span>
+                    <h3>Grants, Programs &amp; Benefits</h3>
+                    <p>Manages the full lifecycle of a public program: applications, eligibility checks, beneficiary
+                        records, approvals, disbursements, field verification, reporting, and audits — for youth funds,
+                        bursaries, agricultural programs, disaster relief and NGO funding.</p>
+                    <div class="idea-diagram">
+                        <svg viewBox="0 0 460 90" role="img" aria-label="Apply, check eligibility, approve, disburse, verify and audit lifecycle loop.">
+                            <defs>
+                                <marker id="arw4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                                    <path d="M0,0 L6,3 L0,6 Z" fill="#7ee8b0" />
+                                </marker>
+                            </defs>
+                            <g font-family="Inter, sans-serif" font-size="9.5" fill="#fff" text-anchor="middle">
+                                <rect x="4" y="30" width="66" height="26" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="37" y="46">Apply</text>
+                                <rect x="86" y="30" width="72" height="26" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="122" y="46">Eligibility</text>
+                                <rect x="174" y="30" width="66" height="26" rx="6" fill="rgba(51,195,126,0.18)" stroke="#33c37e"/>
+                                <text x="207" y="46" font-weight="700">Approve</text>
+                                <rect x="256" y="30" width="72" height="26" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="292" y="46">Disburse</text>
+                                <rect x="344" y="30" width="52" height="26" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="370" y="46">Verify</text>
+                                <rect x="412" y="30" width="44" height="26" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="434" y="46">Audit</text>
+                            </g>
+                            <g stroke="#7ee8b0" stroke-width="1.4" fill="none">
+                                <path d="M70,43 L84,43" marker-end="url(#arw4)"/>
+                                <path d="M158,43 L172,43" marker-end="url(#arw4)"/>
+                                <path d="M240,43 L254,43" marker-end="url(#arw4)"/>
+                                <path d="M328,43 L342,43" marker-end="url(#arw4)"/>
+                                <path d="M396,43 L410,43" marker-end="url(#arw4)"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Idea 5 -->
+                <div class="idea-card">
+                    <span class="idea-num">5</span>
+                    <h3>Inspections &amp; Field Operations</h3>
+                    <p>Inspectors receive assignments, use mobile forms, capture photos and GPS, record findings, issue
+                        notices, schedule follow-ups, and track corrective action — for health, building, environmental,
+                        labour, transport and food-safety enforcement.</p>
+                    <div class="idea-diagram">
+                        <svg viewBox="0 0 460 96" role="img" aria-label="Assign to mobile inspector, capture photo and GPS, findings sync to office, follow-up.">
+                            <defs>
+                                <marker id="arw5" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                                    <path d="M0,0 L6,3 L0,6 Z" fill="#7ee8b0" />
+                                </marker>
+                            </defs>
+                            <g font-family="Inter, sans-serif" font-size="10" fill="#fff" text-anchor="middle">
+                                <rect x="6" y="34" width="80" height="26" rx="6" fill="rgba(51,195,126,0.18)" stroke="#33c37e"/>
+                                <text x="46" y="50" font-weight="700">Assign</text>
+                                <rect x="108" y="8" width="96" height="22" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="156" y="23">Mobile form</text>
+                                <rect x="108" y="38" width="96" height="22" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="156" y="53">Photo + GPS</text>
+                                <rect x="108" y="68" width="96" height="22" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="156" y="83">Findings</text>
+                                <rect x="230" y="34" width="96" height="26" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="278" y="50">Sync to office</text>
+                                <rect x="352" y="34" width="102" height="26" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="403" y="50">Notice / follow-up</text>
+                            </g>
+                            <g stroke="#7ee8b0" stroke-width="1.4" fill="none">
+                                <path d="M86,44 C96,30 100,20 106,19" marker-end="url(#arw5)"/>
+                                <path d="M86,47 L106,49" marker-end="url(#arw5)"/>
+                                <path d="M86,50 C96,64 100,76 106,79" marker-end="url(#arw5)"/>
+                                <path d="M204,49 C216,49 220,47 228,47" marker-end="url(#arw5)"/>
+                                <path d="M326,47 L350,47" marker-end="url(#arw5)"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Idea 6 -->
+                <div class="idea-card">
+                    <span class="idea-num">6</span>
+                    <h3>Citizen Engagement Layer</h3>
+                    <p>Unifies WhatsApp, SMS, email, voice, web chat, and USSD so agencies can send reminders, answer
+                        common questions, and update people on applications. AI handles triage and FAQs — always on top
+                        of clear workflows, permissions, and human escalation.</p>
+                    <div class="idea-diagram">
+                        <svg viewBox="0 0 460 110" role="img" aria-label="Channels feed an AI triage and FAQ layer with human escalation on top of workflows.">
+                            <defs>
+                                <marker id="arw6" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                                    <path d="M0,0 L6,3 L0,6 Z" fill="#7ee8b0" />
+                                </marker>
+                            </defs>
+                            <g font-family="Inter, sans-serif" font-size="9.5" fill="#dff5e9" text-anchor="middle">
+                                <rect x="4" y="8" width="66" height="18" rx="5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="37" y="20">WhatsApp</text>
+                                <rect x="4" y="30" width="66" height="18" rx="5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="37" y="42">SMS/USSD</text>
+                                <rect x="4" y="52" width="66" height="18" rx="5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="37" y="64">Email</text>
+                                <rect x="4" y="74" width="66" height="18" rx="5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="37" y="86">Voice / Chat</text>
+                            </g>
+                            <rect x="150" y="34" width="96" height="34" rx="8" fill="rgba(51,195,126,0.18)" stroke="#33c37e"/>
+                            <text x="198" y="49" font-family="Inter, sans-serif" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">AI Triage</text>
+                            <text x="198" y="61" font-family="Inter, sans-serif" font-size="9" fill="#dff5e9" text-anchor="middle">+ FAQ</text>
+                            <g font-family="Inter, sans-serif" font-size="9.5" fill="#fff" text-anchor="middle">
+                                <rect x="312" y="14" width="120" height="22" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="372" y="29">Human escalation</text>
+                                <rect x="312" y="66" width="120" height="22" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
+                                <text x="372" y="81">Workflows + records</text>
+                            </g>
+                            <g stroke="#7ee8b0" stroke-width="1.4" fill="none">
+                                <path d="M70,17 C110,26 120,44 148,48" marker-end="url(#arw6)"/>
+                                <path d="M70,39 C110,44 120,49 148,50" marker-end="url(#arw6)"/>
+                                <path d="M70,61 C110,58 120,54 148,53" marker-end="url(#arw6)"/>
+                                <path d="M70,83 C110,74 120,58 148,56" marker-end="url(#arw6)"/>
+                                <path d="M246,45 C275,36 285,28 310,25" marker-end="url(#arw6)"/>
+                                <path d="M246,57 C275,66 285,74 310,77" marker-end="url(#arw6)"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Recommendation -->
+                <div class="idea-card reco">
+                    <span class="idea-num" style="background:linear-gradient(135deg,#7ee8b0,#33c37e);">★</span>
+                    <h3>The strongest first product: a configurable Government Workflow OS</h3>
+                    <p>Start with Service Request &amp; Case Management or Forms &amp; Approvals — broad enough to work
+                        across sectors, closest to the automation we already deliver, and easy to prove with one narrow
+                        use case before expanding. Package the same core for county services, healthcare regulation,
+                        agriculture, licensing, or procurement without rebuilding it each time.</p>
+                    <div class="modules">
+                        <div class="mod"><strong>1 · Intake</strong><span>Multi-channel: web, WhatsApp, SMS, USSD,
+                            voice.</span></div>
+                        <div class="mod"><strong>2 · Route &amp; Approve</strong><span>Case routing, approval steps,
+                            SLA tracking.</span></div>
+                        <div class="mod"><strong>3 · Update &amp; Report</strong><span>Automated updates and manager
+                            dashboards.</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM STRIP -->
+    <section class="section sc-section bg-light">
+        <div class="container">
+            <div class="team-strip">
+                <div>
+                    <div class="num">10+</div>
+                </div>
+                <div style="max-width: 480px; text-align: left;">
+                    <h2 style="font-size: 30px; margin-bottom: 10px;">A team of 10+</h2>
+                    <p style="color: var(--text-muted); margin: 0;">Engineers, AI specialists, product designers, and
+                        operators who ship real, production software — the same team behind every project on this page
+                        and ready to build the next one with you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div style="text-align:center;">
+                <img src="kidaflow_logo.png" alt="Kidaflow"
+                    style="filter: brightness(0) invert(1); height: 32px; margin-bottom: 18px;">
+                <p style="font-size: 14px; opacity: 0.6; margin-bottom: 8px;">Automating workflows for modern
+                    businesses.</p>
+            </div>
+            <div
+                style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 30px; font-size: 14px; opacity: 0.4; text-align:center;">
+                <p style="margin-bottom: 20px; max-width: 800px; margin-left:auto; margin-right:auto;">
+                    Now to Him who is able to do exceedingly abundantly above all that we ask or think, according to the
+                    power that works in us, to Him be glory in the church by Christ Jesus to all generations, forever and
+                    ever. Amen.
+                </p>
+                © 2026 KiDaFlow. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="booking.js"></script>
+</body>
+
+</html>
