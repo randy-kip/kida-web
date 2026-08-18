@@ -268,6 +268,123 @@
             text-decoration: underline;
         }
 
+        /* Pricing */
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;
+            align-items: stretch;
+        }
+
+        .price-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-card);
+            padding: 36px 32px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .price-card.featured {
+            border: 2px solid var(--color-accent);
+            box-shadow: 0 20px 50px rgba(8, 33, 17, 0.14);
+            position: relative;
+        }
+
+        .price-badge {
+            position: absolute;
+            top: -13px;
+            left: 32px;
+            background: var(--color-accent);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: var(--radius-pill);
+        }
+
+        .price-scale {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 8px;
+        }
+
+        .price-card h3 {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .price-users {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 22px;
+        }
+
+        .price-amount {
+            font-size: 34px;
+            font-weight: 800;
+            color: var(--bg-dark-green);
+            font-family: var(--font-heading);
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .price-amount small {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .price-note {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .price-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 28px;
+        }
+
+        .price-card li {
+            font-size: 15px;
+            color: var(--text-body);
+            padding: 8px 0 8px 26px;
+            position: relative;
+        }
+
+        .price-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 15px;
+            width: 14px;
+            height: 8px;
+            border-left: 2px solid var(--color-accent);
+            border-bottom: 2px solid var(--color-accent);
+            transform: rotate(-45deg);
+        }
+
+        .price-card .btn {
+            margin-top: auto;
+            width: 100%;
+            text-align: center;
+        }
+
+        .price-foot {
+            text-align: center;
+            margin-top: 34px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
         /* Ideas */
         .idea-band {
             background: radial-gradient(circle at 50% 0%, #0a2e1d 0%, #051b11 100%);
@@ -405,6 +522,7 @@
             .cap-grid,
             .proj-grid,
             .story-grid,
+            .price-grid,
             .idea-grid,
             .reco .modules {
                 grid-template-columns: 1fr;
@@ -508,6 +626,22 @@
                     construction, and B2B commerce.</p>
             </div>
             <div class="proj-grid">
+
+                <div class="proj-card">
+                    <a class="proj-preview" href="https://tax-brain-v3-beige.vercel.app/chat" target="_blank"
+                        rel="noopener">
+                        <img loading="lazy" alt="TaxBrain AI preview"
+                            src="https://image.thum.io/get/width/600/crop/750/https://tax-brain-v3-beige.vercel.app/chat">
+                    </a>
+                    <div class="proj-body">
+                        <div class="proj-tag">Finance · AI Research</div>
+                        <h3>TaxBrain AI</h3>
+                        <p>An AI research assistant for Kenyan tax — ask a question and get annotated, source-backed
+                            answers in seconds instead of digging through legislation and circulars.</p>
+                        <a class="proj-link" href="https://tax-brain-v3-beige.vercel.app/chat" target="_blank"
+                            rel="noopener">Visit project →</a>
+                    </div>
+                </div>
 
                 <div class="proj-card">
                     <a class="proj-preview" href="https://buildcompliancevault.com/" target="_blank" rel="noopener">
@@ -746,6 +880,72 @@
             <div style="text-align: center; margin-top: 50px;">
                 <a href="customers.html" class="btn btn-secondary">View all success stories</a>
             </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section sc-section" style="background:#fff;">
+        <div class="container">
+            <div class="sc-head">
+                <span class="text-label" style="color: var(--color-accent);">INVESTMENT</span>
+                <h2>Pricing that scales with you</h2>
+                <p>Indicative starting points for custom-built systems. Every engagement is scoped to your workflow —
+                    final quotes depend on scale, integrations, and complexity.</p>
+            </div>
+
+            <div class="price-grid">
+
+                <div class="price-card">
+                    <div class="price-scale">Company Systems</div>
+                    <h3>Company Systems</h3>
+                    <div class="price-users">10–50 users</div>
+                    <div class="price-amount">From KES 2M</div>
+                    <div class="price-note">Ideal for a growing team standardising one core operation.</div>
+                    <ul>
+                        <li>Custom software built around your workflow</li>
+                        <li>Core integrations &amp; automations</li>
+                        <li>Dashboards and reporting</li>
+                        <li>Onboarding &amp; support</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-secondary">Talk to us</a>
+                </div>
+
+                <div class="price-card featured">
+                    <span class="price-badge">Most popular</span>
+                    <div class="price-scale">Mid-Scale Systems</div>
+                    <h3>Mid-Scale Systems</h3>
+                    <div class="price-users">50–200 users</div>
+                    <div class="price-amount">KES 5M – 8M</div>
+                    <div class="price-note">For multi-team operations that need depth, roles, and scale.</div>
+                    <ul>
+                        <li>Everything in Company Systems</li>
+                        <li>Multi-department workflows &amp; roles</li>
+                        <li>Advanced AI agents &amp; multi-channel intake</li>
+                        <li>Deeper integrations &amp; data exchange</li>
+                        <li>Priority support &amp; SLAs</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Talk to us</a>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-scale">Enterprise</div>
+                    <h3>Custom &amp; Enterprise</h3>
+                    <div class="price-users">200+ users · government</div>
+                    <div class="price-amount">Custom quote</div>
+                    <div class="price-note">For large-scale platforms, public-sector, and cross-agency systems.</div>
+                    <ul>
+                        <li>Tailored architecture &amp; scale</li>
+                        <li>Inter-agency / cross-system integration</li>
+                        <li>Security, compliance &amp; audit trails</li>
+                        <li>Dedicated team &amp; roadmap</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-secondary">Request a quote</a>
+                </div>
+
+            </div>
+
+            <p class="price-foot">All figures are indicative starting points in Kenyan Shillings (KES). We'll give you
+                a firm quote after a short scoping call.</p>
         </div>
     </section>
 
